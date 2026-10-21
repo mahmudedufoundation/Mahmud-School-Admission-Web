@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import AdmissionNavbar from "@/components/AdmissionNavbar";
 import AdmissionHero from "@/components/AdmissionHero";
 import AdmissionWizard from "@/components/AdmissionWizard";
+import AdmissionFaqSection from "@/components/AdmissionFaqSection";
 import AdmissionSuccessModal from "@/components/AdmissionSuccessModal";
 import ApplicationTrackerModal from "@/components/ApplicationTrackerModal";
 import AdmissionFooter from "@/components/AdmissionFooter";
@@ -34,6 +35,9 @@ export default function AdmissionHomePage() {
       <section className="py-6 sm:py-10 flex-1">
         <AdmissionWizard onSuccess={(data) => setSuccessData(data)} />
       </section>
+
+      {/* SEO-Rich Admission FAQ & Eligibility Matrix */}
+      <AdmissionFaqSection onScrollToForm={handleScrollToForm} />
 
       {/* Footer */}
       <AdmissionFooter />

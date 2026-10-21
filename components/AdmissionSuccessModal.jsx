@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, Printer, Share2, Download, Copy, Calendar, Phone, ArrowRight, X } from "lucide-react";
+import { CheckCircle2, Printer, Share2, Copy, X } from "lucide-react";
 import { toast } from "sonner";
 
 export default function AdmissionSuccessModal({ data, onClose }) {
@@ -24,99 +24,108 @@ export default function AdmissionSuccessModal({ data, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-purple-950/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-purple-100 overflow-hidden print-slip">
-        {/* Top Header */}
-        <div className="p-6 bg-gradient-to-r from-purple-950 via-indigo-900 to-purple-900 text-white text-center relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs animate-fadeIn">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden print-slip">
+        {/* Top Header - Pure Light with Official Logo */}
+        <div className="p-4 sm:p-5 bg-white border-b border-slate-100 text-center relative">
           <button
             type="button"
             onClick={onClose}
-            className="no-print absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"
+            className="no-print absolute top-3 right-3 w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
           >
-            <X size={18} />
+            <X size={15} />
           </button>
 
-          <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 flex items-center justify-center mx-auto mb-3">
-            <CheckCircle2 size={32} />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 p-1 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center">
+            <img
+              src="/images/logo.png"
+              alt="Mahmud International School"
+              className="w-full h-full object-contain"
+            />
           </div>
 
-          <h3 className="text-xl font-black tracking-tight">Application Submitted!</h3>
-          <p className="text-xs text-purple-200 mt-1">
-            Mahmud International School, Rupahi • Academic Session 2026-2027
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-1">
+            <CheckCircle2 size={13} />
+            <span>Application Submitted Successfully</span>
+          </div>
+
+          <h3 className="text-sm sm:text-base font-bold text-slate-900">
+            Mahmud International School, Rupahi
+          </h3>
+          <p className="text-[11px] text-slate-500">
+            Academic Session 2026-2027 • Official Acknowledgment Receipt
           </p>
         </div>
 
         {/* Application Number Box */}
-        <div className="p-6 space-y-5">
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 text-center space-y-1.5">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
-              Official Application Reference Number
+        <div className="p-4 sm:p-5 space-y-3.5">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-1">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+              Application Reference Number
             </span>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-2xl sm:text-3xl font-black text-purple-950 font-mono tracking-wider">
+              <span className="text-xl sm:text-2xl font-black text-indigo-700 font-mono tracking-wider">
                 {data.applicationNumber}
               </span>
               <button
                 type="button"
                 onClick={handleCopyRef}
-                title="Copy Reference"
-                className="no-print p-1.5 rounded-lg text-purple-800 hover:bg-purple-100 transition-colors cursor-pointer"
+                title="Copy Reference Number"
+                className="no-print p-1.5 rounded-md text-slate-600 hover:text-indigo-700 hover:bg-slate-200/60 transition-colors cursor-pointer"
               >
-                <Copy size={16} />
+                <Copy size={15} />
               </button>
             </div>
-            <p className="text-[11px] text-slate-500">
-              Please save this number for future application status tracking and interview scheduling.
+            <p className="text-[10px] text-slate-500">
+              Please save this reference number for tracking and desk verification.
             </p>
           </div>
 
           {/* Applicant Details Grid */}
-          <div className="grid grid-cols-2 gap-3 p-4 rounded-2xl bg-purple-50/50 border border-purple-100 text-xs">
+          <div className="grid grid-cols-2 gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
             <div>
-              <span className="text-[10px] font-semibold text-slate-400 block">Student Name</span>
-              <span className="font-bold text-slate-800">{data.studentName}</span>
+              <span className="text-[10px] font-medium text-slate-500 block">Student Name</span>
+              <span className="font-bold text-slate-900">{data.studentName}</span>
             </div>
             <div>
-              <span className="text-[10px] font-semibold text-slate-400 block">Class Applied For</span>
-              <span className="font-bold text-purple-900">{data.className}</span>
+              <span className="text-[10px] font-medium text-slate-500 block">Class Applied For</span>
+              <span className="font-bold text-indigo-700">{data.className}</span>
             </div>
             <div>
-              <span className="text-[10px] font-semibold text-slate-400 block">Parent / Guardian</span>
-              <span className="font-bold text-slate-800">{data.fatherName || "Parent"}</span>
+              <span className="text-[10px] font-medium text-slate-500 block">Parent / Guardian</span>
+              <span className="font-bold text-slate-900">{data.fatherName || "Parent"}</span>
             </div>
             <div>
-              <span className="text-[10px] font-semibold text-slate-400 block">Primary Contact</span>
-              <span className="font-bold text-slate-800">{data.contactPhone}</span>
+              <span className="text-[10px] font-medium text-slate-500 block">Contact Phone</span>
+              <span className="font-bold text-slate-900">{data.contactPhone}</span>
             </div>
           </div>
 
           {/* Next Steps Information */}
-          <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-xs text-amber-950 space-y-1">
-            <h4 className="font-extrabold flex items-center gap-1.5">
-              <span>What Happens Next?</span>
-            </h4>
-            <p className="text-[11px] text-amber-900 leading-relaxed">
-              Our Admissions Office will review your application within 2-3 business days. You will receive an SMS and WhatsApp invitation for the student interaction and document verification.
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-0.5">
+            <h4 className="font-bold text-slate-900 text-xs">What Happens Next?</h4>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Our Admissions Office will review your application within 2-3 business days. You will receive an SMS/WhatsApp notification for document verification.
             </p>
           </div>
 
-          {/* Action Buttons */}
-          <div className="no-print pt-2 flex flex-col sm:flex-row items-center gap-3">
+          {/* Action Buttons - Solid Single-Color */}
+          <div className="no-print pt-1 flex flex-col sm:flex-row items-center gap-2">
             <button
               type="button"
               onClick={handlePrint}
-              className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-purple-900 text-white text-xs font-bold hover:bg-purple-950 flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+              className="w-full sm:flex-1 py-2.5 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
-              <Printer size={15} />
-              <span>Print Application Slip</span>
+              <Printer size={14} />
+              <span>Print Receipt Slip</span>
             </button>
 
             <button
               type="button"
               onClick={handleShareWhatsApp}
-              className="w-full sm:w-auto py-3 px-4 rounded-xl border border-emerald-600 text-emerald-800 bg-emerald-50 text-xs font-bold hover:bg-emerald-100 flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
-              <Share2 size={15} />
+              <Share2 size={14} />
               <span>Share to WhatsApp</span>
             </button>
           </div>

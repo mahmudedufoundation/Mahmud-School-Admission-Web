@@ -3,13 +3,13 @@ import LenisProvider from "@/lib/lenis-provider";
 import { Toaster } from "sonner";
 
 export const viewport = {
-  themeColor: "#2e1065",
+  themeColor: "#4338ca",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata = {
-  title: "Online Admission 2026-2027 | Mahmud International School, Rupahi (CBSE)",
+  title: "Online Admission 2026-2027 | Mahmud International School, Rupahi",
   description:
     "Apply online for student admission 2026-2027 for Nursery to Class XII (Science, Commerce, Arts) at Mahmud International School, Rupahi, Nagaon, Assam. Instant digital slip, 24/7 application tracking, smart campus, hostel & school bus facilities.",
   keywords: [
@@ -17,8 +17,8 @@ export const metadata = {
     "MIS Rupahi",
     "Online Admission 2026-2027",
     "School Admission Nagaon Assam",
-    "CBSE School Rupahi",
-    "Best CBSE School in Nagaon",
+    "English Medium School Rupahi",
+    "Best School in Nagaon Assam",
     "Class 11 Science Admission Rupahi",
     "School Admission Form Assam",
     "Hostel Facility School Assam",
@@ -71,7 +71,7 @@ const jsonLd = {
       url: "https://admission.misrupahi.com",
       logo: "https://admission.misrupahi.com/images/logo.png",
       description:
-        "Premier CBSE-affiliated educational institution in Rupahi, Nagaon, Assam offering Nursery through Senior Secondary Class XII education.",
+        "Premier English medium educational institution in Rupahi, Nagaon, Assam offering Nursery through Senior Secondary Class XII education.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Rupahi Town, Near Block Development Office",

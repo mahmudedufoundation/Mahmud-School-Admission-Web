@@ -21,7 +21,7 @@ export default function AdmissionHomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#faf8ff]">
+    <main className="min-h-screen flex flex-col bg-[#f8fafc]">
       {/* Top Navigation */}
       <AdmissionNavbar
         onOpenTracker={() => setTrackerOpen(true)}
@@ -31,8 +31,8 @@ export default function AdmissionHomePage() {
       {/* Hero Section */}
       <AdmissionHero onScrollToForm={handleScrollToForm} />
 
-      {/* Main Form Section */}
-      <section className="py-6 sm:py-10 flex-1">
+      {/* Main Form Section - Tight Mobile & Desktop Spacing */}
+      <section className="py-4 sm:py-6 flex-1">
         <AdmissionWizard onSuccess={(data) => setSuccessData(data)} />
       </section>
 

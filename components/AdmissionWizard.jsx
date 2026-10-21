@@ -272,33 +272,33 @@ export default function AdmissionWizard({ onSuccess }) {
     classesList.find((c) => c.id === formData.applying_for_class_id)?.name || "Not Selected";
 
   return (
-    <div id="admission-wizard-card" className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+    <div id="admission-wizard-card" className="w-full max-w-4xl mx-auto px-3 sm:px-6">
       {/* Wizard Step Navigation Bar */}
-      <div className="glass-panel p-3 sm:p-4 rounded-3xl shadow-lg border-purple-100/90 mb-6">
-        <div className="flex items-center justify-between mb-3">
+      <div className="bg-white p-3 sm:p-4 rounded-xl border border-slate-200 shadow-2xs mb-4 sm:mb-5">
+        <div className="flex items-center justify-between mb-2.5">
           <div className="flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-purple-900 text-amber-300 flex items-center justify-center text-xs font-black">
+            <span className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[11px] font-bold">
               {currentStep}
             </span>
-            <span className="text-xs sm:text-sm font-extrabold text-slate-800">
+            <span className="text-xs sm:text-sm font-bold text-slate-900">
               {ADMISSION_STEPS[currentStep - 1].title}
             </span>
           </div>
-          <span className="text-xs font-bold text-purple-700">Step {currentStep} of 5</span>
+          <span className="text-xs font-semibold text-slate-500">Step {currentStep} of 5</span>
         </div>
 
-        {/* Animated Progress Bar */}
-        <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+        {/* Animated Progress Bar - Single Color */}
+        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-purple-900 via-indigo-700 to-amber-500 rounded-full"
+            className="h-full bg-indigo-600 rounded-full"
             initial={{ width: "20%" }}
             animate={{ width: `${(currentStep / 5) * 100}%` }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           />
         </div>
 
         {/* Step Icons (Desktop View) */}
-        <div className="hidden sm:grid grid-cols-5 gap-2 mt-4 pt-2 border-t border-slate-100">
+        <div className="hidden sm:grid grid-cols-5 gap-2 mt-3 pt-2.5 border-t border-slate-100">
           {ADMISSION_STEPS.map((step) => {
             const isCompleted = step.id < currentStep;
             const isCurrent = step.id === currentStep;
@@ -314,21 +314,21 @@ export default function AdmissionWizard({ onSuccess }) {
                   }
                 }}
                 disabled={step.id > currentStep}
-                className={`text-left p-2 rounded-xl transition-all ${
+                className={`text-left p-2 rounded-lg transition-colors ${
                   isCurrent
-                    ? "bg-purple-100/60 border border-purple-200"
+                    ? "bg-slate-50 border border-slate-300 text-slate-900"
                     : isCompleted
                     ? "opacity-90 hover:bg-slate-50 cursor-pointer"
                     : "opacity-40 cursor-not-allowed"
                 }`}
               >
-                <div className="flex items-center gap-1.5 mb-1">
+                <div className="flex items-center gap-1.5 mb-0.5">
                   {isCompleted ? (
-                    <CheckCircle2 size={14} className="text-emerald-600" />
+                    <CheckCircle2 size={13} className="text-emerald-600" />
                   ) : (
                     <span
                       className={`w-3.5 h-3.5 rounded-full text-[9px] font-bold flex items-center justify-center ${
-                        isCurrent ? "bg-purple-900 text-white" : "bg-slate-200 text-slate-600"
+                        isCurrent ? "bg-indigo-600 text-white" : "bg-slate-200 text-slate-600"
                       }`}
                     >
                       {step.id}
@@ -336,7 +336,7 @@ export default function AdmissionWizard({ onSuccess }) {
                   )}
                   <span
                     className={`text-[11px] font-bold truncate ${
-                      isCurrent ? "text-purple-950 font-black" : "text-slate-600"
+                      isCurrent ? "text-slate-900" : "text-slate-600"
                     }`}
                   >
                     {step.title}
@@ -349,10 +349,10 @@ export default function AdmissionWizard({ onSuccess }) {
         </div>
       </div>
 
-      {/* Main Wizard Form Card */}
-      <div className="glass-panel p-5 sm:p-8 rounded-3xl shadow-xl border-purple-100 relative overflow-hidden">
+      {/* Main Wizard Form Card - Pure Light Theme */}
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-2xs relative">
         {/* Top Decorative Header */}
-        <div className="flex items-center justify-between pb-5 mb-6 border-b border-slate-100">
+        <div className="flex items-center justify-between pb-3.5 mb-4 sm:mb-5 border-b border-slate-100">
           <div>
             <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
               {ADMISSION_STEPS[currentStep - 1].title}
@@ -816,14 +816,14 @@ export default function AdmissionWizard({ onSuccess }) {
             {/* STEP 5: REVIEW & DECLARATION */}
             {currentStep === 5 && (
               <div className="space-y-5">
-                {/* Summary Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 space-y-3">
-                  <div className="flex items-center justify-between border-b border-purple-200/60 pb-2">
-                    <span className="text-xs font-black text-purple-950 uppercase">Application Summary</span>
+                {/* Summary Card - Pure Light Theme */}
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                    <span className="text-xs font-bold text-slate-900 uppercase">Application Summary</span>
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="text-[11px] font-bold text-purple-700 hover:underline"
+                      className="text-[11px] font-semibold text-indigo-600 hover:underline"
                     >
                       Edit Info
                     </button>
@@ -838,7 +838,7 @@ export default function AdmissionWizard({ onSuccess }) {
                     </div>
                     <div>
                       <span className="text-slate-400 text-[10px] block">Target Class</span>
-                      <span className="font-bold text-purple-900">{selectedClassName}</span>
+                      <span className="font-bold text-indigo-700">{selectedClassName}</span>
                     </div>
                     <div>
                       <span className="text-slate-400 text-[10px] block">Date of Birth</span>
@@ -865,25 +865,25 @@ export default function AdmissionWizard({ onSuccess }) {
                   </div>
                 </div>
 
-                {/* Document Verification Notice */}
-                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-3">
-                  <FileCheck2 size={20} className="text-amber-700 shrink-0 mt-0.5" />
+                {/* Document Verification Notice - Pure Light */}
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5">
+                  <FileCheck2 size={18} className="text-indigo-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-black text-amber-950">Documents Required at Interaction</h4>
-                    <p className="text-[11px] text-amber-900 mt-1 leading-relaxed">
-                      You will need to present: (1) Original Birth Certificate, (2) Previous Year Report Card, (3) 4 Passport Photos, and (4) Transfer Certificate upon school visit.
+                    <h4 className="text-xs font-bold text-slate-900">Documents Required at Interaction</h4>
+                    <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
+                      Please keep ready: (1) Student Birth Certificate, (2) Previous Year Report Card, (3) 4 Passport Photos, and (4) Transfer Certificate upon school visit.
                     </p>
                   </div>
                 </div>
 
                 {/* Legal Declaration Checkbox */}
-                <div className="p-4 rounded-2xl border border-slate-200 bg-white">
+                <div className="p-3.5 sm:p-4 rounded-xl border border-slate-200 bg-white">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formData.declaration_accepted}
                       onChange={(e) => updateField("declaration_accepted", e.target.checked)}
-                      className="w-5 h-5 accent-purple-900 rounded shrink-0 mt-0.5"
+                      className="w-4 h-4 accent-indigo-600 rounded shrink-0 mt-0.5"
                     />
                     <span className="text-xs text-slate-700 leading-normal font-medium">
                       I hereby declare that all information furnished in this application is true and complete to the best of my knowledge. I agree to abide by the rules and code of conduct of Mahmud International School, Rupahi.
@@ -895,14 +895,14 @@ export default function AdmissionWizard({ onSuccess }) {
           </motion.div>
         </AnimatePresence>
 
-        {/* Wizard Footer Controls */}
-        <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+        {/* Wizard Footer Controls - Solid Single-Color Buttons */}
+        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={handleBack}
               disabled={submitting}
-              className="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-1.5 transition-all cursor-pointer"
+              className="px-4 py-2 rounded-lg border border-slate-300 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 shadow-2xs flex items-center gap-1.5 transition-colors cursor-pointer"
             >
               <ArrowLeft size={14} />
               <span>Back</span>
@@ -915,7 +915,7 @@ export default function AdmissionWizard({ onSuccess }) {
             <button
               type="button"
               onClick={handleNext}
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-950 to-indigo-900 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-950/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <span>Continue</span>
               <ArrowRight size={14} />
@@ -925,16 +925,16 @@ export default function AdmissionWizard({ onSuccess }) {
               type="button"
               onClick={handleSubmit}
               disabled={submitting}
-              className="px-8 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white text-xs sm:text-sm font-black shadow-lg shadow-emerald-600/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+              className="px-6 py-2.5 sm:py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold shadow-2xs transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50"
             >
               {submitting ? (
                 <>
-                  <Loader2 size={16} className="animate-spin" />
+                  <Loader2 size={15} className="animate-spin" />
                   <span>Submitting Application...</span>
                 </>
               ) : (
                 <>
-                  <Sparkles size={16} className="text-amber-300" />
+                  <CheckCircle2 size={15} />
                   <span>Submit Admission Form</span>
                 </>
               )}

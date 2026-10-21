@@ -53,7 +53,7 @@ export default function AdmissionSuccessModal({ data, onClose }) {
             Mahmud International School, Rupahi
           </h3>
           <p className="text-[11px] text-slate-500">
-            Academic Session 2026-2027 • Official Acknowledgment Receipt
+            Academic Session 2027-2028 • Official Acknowledgment Receipt
           </p>
         </div>
 
@@ -64,14 +64,14 @@ export default function AdmissionSuccessModal({ data, onClose }) {
               Application Reference Number
             </span>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-xl sm:text-2xl font-black text-indigo-700 font-mono tracking-wider">
+              <span className="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-wider">
                 {data.applicationNumber}
               </span>
               <button
                 type="button"
                 onClick={handleCopyRef}
                 title="Copy Reference Number"
-                className="no-print p-1.5 rounded-md text-slate-600 hover:text-indigo-700 hover:bg-slate-200/60 transition-colors cursor-pointer"
+                className="no-print p-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-colors cursor-pointer"
               >
                 <Copy size={15} />
               </button>
@@ -89,7 +89,7 @@ export default function AdmissionSuccessModal({ data, onClose }) {
             </div>
             <div>
               <span className="text-[10px] font-medium text-slate-500 block">Class Applied For</span>
-              <span className="font-bold text-indigo-700">{data.className}</span>
+              <span className="font-bold text-slate-900">{data.className}</span>
             </div>
             <div>
               <span className="text-[10px] font-medium text-slate-500 block">Parent / Guardian</span>
@@ -114,7 +114,7 @@ export default function AdmissionSuccessModal({ data, onClose }) {
             <button
               type="button"
               onClick={handlePrint}
-              className="w-full sm:flex-1 py-2.5 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="w-full sm:flex-1 py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Printer size={14} />
               <span>Print Receipt Slip</span>
@@ -123,7 +123,7 @@ export default function AdmissionSuccessModal({ data, onClose }) {
             <button
               type="button"
               onClick={handleShareWhatsApp}
-              className="w-full sm:w-auto py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="w-full sm:w-auto py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-2xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <Share2 size={14} />
               <span>Share to WhatsApp</span>

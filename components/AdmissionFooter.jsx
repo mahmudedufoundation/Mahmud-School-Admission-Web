@@ -68,7 +68,7 @@ export default function AdmissionFooter() {
           <p className="flex items-center gap-1.5 font-medium">
             <span>Online Admission Portal</span>
             <span>•</span>
-            <span className="text-indigo-700 font-bold">Session 2026-2027</span>
+            <span className="text-slate-800 font-bold">Session 2027-2028</span>
           </p>
         </div>
       </div>

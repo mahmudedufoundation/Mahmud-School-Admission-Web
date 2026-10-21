@@ -81,10 +81,9 @@ export async function POST(request) {
       activeSessionId = anySession?.[0]?.id || "7c39068e-d826-48c3-b663-a6310da8e6ed";
     }
 
-    // 2. Generate Unique Application Serial (e.g. MIS-ADM-2026-1042)
+    // 2. Generate Unique Application Serial (e.g. MIS-ADM-2027-1042)
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    const year = new Date().getFullYear();
-    const appNumber = `MIS-ADM-${year}-${randomSuffix}`;
+    const appNumber = `MIS-ADM-2027-${randomSuffix}`;
 
     // 3. Insert into isolated admission_applications table
     const applicationPayload = {

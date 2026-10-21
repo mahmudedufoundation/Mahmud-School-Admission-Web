@@ -1,21 +1,28 @@
 import "./globals.css";
+import { Inter } from "next/font/google";
 import LenisProvider from "@/lib/lenis-provider";
 import { Toaster } from "sonner";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const viewport = {
-  themeColor: "#4338ca",
+  themeColor: "#0f172a",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata = {
-  title: "Online Admission 2026-2027 | Mahmud International School, Rupahi",
+  title: "Online Admission 2027-2028 | Mahmud International School, Rupahi",
   description:
-    "Apply online for student admission 2026-2027 for Nursery to Class XII (Science, Commerce, Arts) at Mahmud International School, Rupahi, Nagaon, Assam. Instant digital slip, 24/7 application tracking, smart campus, hostel & school bus facilities.",
+    "Apply online for student admission 2027-2028 for Nursery to Class XII (Science, Commerce, Arts) at Mahmud International School, Rupahi, Nagaon, Assam. Instant digital slip, 24/7 application tracking, smart campus, hostel & school bus facilities.",
   keywords: [
     "Mahmud International School",
     "MIS Rupahi",
-    "Online Admission 2026-2027",
+    "Online Admission 2027-2028",
     "School Admission Nagaon Assam",
     "English Medium School Rupahi",
     "Best School in Nagaon Assam",
@@ -44,7 +51,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Online Admission 2026-2027 | Mahmud International School",
+    title: "Online Admission 2027-2028 | Mahmud International School",
     description:
       "Apply online for Nursery to Class XII. Modern digital smart classrooms, science labs, safe bus transport & residential boarding in Rupahi, Nagaon.",
     url: "https://admission.misrupahi.com",
@@ -54,7 +61,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Online Admission 2026-2027 | Mahmud International School",
+    title: "Online Admission 2027-2028 | Mahmud International School",
     description:
       "Apply online for Nursery to Class XII. Modern digital smart classrooms, safe transport & hostel in Rupahi, Assam.",
   },
@@ -119,14 +126,14 @@ const jsonLd = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Online Admission 2026-2027",
+          name: "Online Admission 2027-2028",
           item: "https://admission.misrupahi.com",
         },
       ],
     },
     {
       "@type": "ApplyAction",
-      name: "Apply for Online School Admission 2026-2027",
+      name: "Apply for Online School Admission 2027-2028",
       target: "https://admission.misrupahi.com",
       actionStatus: "https://schema.org/ActiveActionStatus",
       agent: {
@@ -139,7 +146,7 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How can I apply for admission to Mahmud International School for session 2026-2027?",
+          name: "How can I apply for admission to Mahmud International School for session 2027-2028?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Parents and guardians can complete the official 5-step online admission form directly on admission.misrupahi.com. Enter student demographics, parent details, address, and facility requirements (transport/hostel) to receive an instant digital admission acknowledgment slip.",
@@ -150,7 +157,7 @@ const jsonLd = {
           name: "Which classes are open for new admission at MIS Rupahi?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Admissions for Academic Session 2026-2027 are open from Pre-Primary (Nursery, LKG, UKG), Primary & Middle School (Classes I to VIII), Secondary (Classes IX & X), up to Senior Secondary Class XI & XII (Science, Commerce, and Arts streams).",
+            text: "Admissions for Academic Session 2027-2028 are open from Pre-Primary (Nursery, LKG, UKG), Primary & Middle School (Classes I to VIII), Secondary (Classes IX & X), up to Senior Secondary Class XI & XII (Science, Commerce, and Arts streams).",
           },
         },
         {
@@ -166,7 +173,7 @@ const jsonLd = {
           name: "How do I check the live status of my submitted admission application?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You can track your application live 24/7 by clicking the 'Track Application' button at the top of the portal. Enter either your 16-digit Application Reference Number (e.g., MIS-ADM-2026-XXXX) or the registered parent phone number.",
+            text: "You can track your application live 24/7 by clicking the 'Track Application' button at the top of the portal. Enter either your 16-digit Application Reference Number (e.g., MIS-ADM-2027-XXXX) or the registered parent phone number.",
           },
         },
       ],
@@ -176,7 +183,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <meta name="google-site-verification" content="google46adb45f47e61000" />
         <script
@@ -184,7 +191,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="font-sans antialiased bg-[#f8fafc] text-slate-900">
         <LenisProvider>
           {children}
           <Toaster richColors position="top-center" />

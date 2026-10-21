@@ -15,12 +15,12 @@ import {
 
 const FAQ_ITEMS = [
   {
-    q: "What is the online admission procedure for Session 2026-2027?",
-    a: "Applying takes only 3 minutes: (1) Select the target class and fill student details, (2) Provide father and mother contact information, (3) Enter your residential address, (4) Choose facility options like school bus transport and hostel boarding, and (5) Submit to receive an instant digital receipt slip with an application reference number (MIS-ADM-2026-XXXX).",
+    q: "What is the online admission procedure for Session 2027-2028?",
+    a: "Applying takes only 3 minutes: (1) Select the target class and fill student details, (2) Provide father and mother contact information, (3) Enter your residential address, (4) Choose facility options like school bus transport and hostel boarding, and (5) Submit to receive an instant digital receipt slip with an application reference number (MIS-ADM-2027-XXXX).",
   },
   {
     q: "What is the minimum age criterion for Nursery and Class 1?",
-    a: "As per National Education Policy (NEP) and standard schooling norms, as of March 31, 2026: Nursery requires minimum 3+ years, LKG 4+ years, UKG 5+ years, and Class 1 requires minimum 6 years of age.",
+    a: "As per National Education Policy (NEP) and standard schooling norms, as of March 31, 2027: Nursery requires minimum 3+ years, LKG 4+ years, UKG 5+ years, and Class 1 requires minimum 6 years of age.",
   },
   {
     q: "What documents will be requested during the offline document verification?",
@@ -56,7 +56,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
       {/* Section Header */}
       <div className="text-center space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-          <HelpCircle size={14} className="text-indigo-600" />
+          <HelpCircle size={14} className="text-slate-700" />
           <span>Admission Guidelines & FAQs</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
@@ -71,9 +71,9 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
       <div className="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden">
         <div className="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-1.5 text-indigo-700 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-1.5 text-slate-800 text-xs font-bold uppercase tracking-wider">
               <GraduationCap size={15} />
-              <span>Academic Session 2026-2027</span>
+              <span>Academic Session 2027-2028</span>
             </div>
             <h3 className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
               Class Eligibility & Age Matrix
@@ -82,7 +82,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
           <button
             type="button"
             onClick={onScrollToForm}
-            className="self-start sm:self-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="self-start sm:self-auto px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <span>Apply Now</span>
             <ArrowRight size={13} />
@@ -105,7 +105,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
                   <td className="py-2.5 px-3 sm:px-4 font-bold text-slate-900">
                     {row.class}
                   </td>
-                  <td className="py-2.5 px-3 sm:px-4 font-semibold text-indigo-700">
+                  <td className="py-2.5 px-3 sm:px-4 font-semibold text-slate-900">
                     {row.age}
                   </td>
                   <td className="py-2.5 px-3 sm:px-4 text-slate-500">
@@ -130,7 +130,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
               key={idx}
               className={`border rounded-xl transition-colors bg-white ${
                 isOpen
-                  ? "border-indigo-300 ring-1 ring-indigo-100 shadow-xs"
+                  ? "border-slate-400 ring-1 ring-slate-200 shadow-xs"
                   : "border-slate-200 hover:border-slate-300 shadow-2xs"
               }`}
             >
@@ -145,7 +145,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
                 <ChevronDown
                   size={15}
                   className={`text-slate-400 shrink-0 mt-0.5 transition-transform duration-200 ${
-                    isOpen ? "rotate-180 text-indigo-600" : ""
+                    isOpen ? "rotate-180 text-slate-900" : ""
                   }`}
                 />
               </button>
@@ -162,7 +162,7 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
       {/* Trust & Amenities Badges - Pure Light Theme */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
         <div className="p-3 bg-white rounded-xl border border-slate-200 text-center space-y-1 shadow-2xs">
-          <div className="w-8 h-8 mx-auto rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center">
+          <div className="w-8 h-8 mx-auto rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center">
             <BookOpen size={16} />
           </div>
           <h4 className="font-bold text-xs text-slate-900">Holistic Learning</h4>

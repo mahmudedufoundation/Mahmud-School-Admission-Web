@@ -102,15 +102,15 @@ export default function ApplicationTrackerModal({ isOpen, onClose }) {
             <div className="flex gap-2">
               <input
                 type="text"
-                placeholder="e.g. MIS-ADM-2026-1048 or 9876543210"
+                placeholder="e.g. MIS-ADM-2027-1048 or 9876543210"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="flex-1 py-2 px-3 rounded-lg border border-slate-300 text-xs font-medium focus:border-indigo-600 focus:outline-none"
+                className="flex-1 py-2 px-3 rounded-lg border border-slate-300 text-xs font-medium focus:border-slate-900 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={loading || !query.trim()}
-                className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 disabled:opacity-50 flex items-center gap-1.5 transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 disabled:opacity-50 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               >
                 {loading ? <Loader2 size={13} className="animate-spin" /> : <Search size={13} />}
                 <span>Search</span>
@@ -135,7 +135,7 @@ export default function ApplicationTrackerModal({ isOpen, onClose }) {
                   className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-indigo-700 font-mono tracking-wider">
+                    <span className="text-xs font-bold text-slate-900 font-mono tracking-wider">
                       {app.application_number}
                     </span>
                     {getStatusBadge(app.status)}

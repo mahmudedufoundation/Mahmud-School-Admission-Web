@@ -26,7 +26,7 @@ This portal is **strictly decoupled** from the active school ERP and production 
   - GSAP entrance choreography and value badges
   - Directional Framer Motion page steps with sound layout transitions
 - **Digital Slip & Receipt**:
-  - Auto-generated serial reference format: `MIS-ADM-2026-XXXX`
+  - Auto-generated serial reference format: `MIS-ADM-2027-XXXX`
   - 1-Click Print & PDF Receipt Slip
   - Direct WhatsApp sharing link
 - **Live Application Tracking**:

@@ -68,7 +68,7 @@ async function runE2ETests() {
     // 3. Generate serial application number
     console.log("3. Generating application reference number...");
     const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    testAppNumber = `MIS-ADM-2026-${randomSuffix}`;
+    testAppNumber = `MIS-ADM-2027-${randomSuffix}`;
     console.log(`   Generated Application No: ${testAppNumber}`);
 
     // 4. Submit New Admission Application anonymously (Public Admission Portal)
@@ -177,7 +177,7 @@ async function runE2ETests() {
       insertedApp.status.toUpperCase(),
     ];
     const csvString = csvRow.join(",");
-    assert(csvString.includes(`MIS-ADM-2026-`), "CSV missing application number");
+    assert(csvString.includes(`MIS-ADM-2027-`), "CSV missing application number");
     assert(csvString.includes(`="9876543210"`), "CSV phone numbers not properly protected against Excel numeric conversion");
     console.log(`   CSV Row Preview: ${csvString.slice(0, 100)}...`);
 

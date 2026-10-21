@@ -64,7 +64,7 @@ export default function AdmissionFooter() {
 
         {/* Bottom Bar */}
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
-          <p>© {new Date().getFullYear()} Mahmud Educational Foundation. All Rights Reserved.</p>
+          <p>© Mahmud Educational Foundation. All Rights Reserved.</p>
           <p className="flex items-center gap-1.5 font-medium">
             <span>Online Admission Portal</span>
             <span>•</span>

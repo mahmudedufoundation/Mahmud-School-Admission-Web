@@ -163,10 +163,36 @@ export default function AdmissionFooter() {
                 </button>
               </li>
               <li>
-                <span className="text-slate-600">GPS Bus Transport Routes</span>
+                <Link
+                  href="/admission-rupahi"
+                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  Best School in Rupahi
+                </Link>
               </li>
               <li>
-                <span className="text-slate-600">Residential Hostel Boarding</span>
+                <Link
+                  href="/class-11-admission-rupahi"
+                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  Class 11 Science & Commerce
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/school-bus-routes-rupahi"
+                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  GPS Bus Routes (Rupahi & Nagaon)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hostel-school-rupahi"
+                  className="text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  Residential Boarding & Hostel
+                </Link>
               </li>
               <li>
                 <Link

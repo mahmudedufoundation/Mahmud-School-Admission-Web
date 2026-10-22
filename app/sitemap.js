@@ -10,6 +10,30 @@ export default function sitemap() {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/admission-rupahi`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/class-11-admission-rupahi`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/hostel-school-rupahi`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/school-bus-routes-rupahi`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/#admission-faq-section`,
       lastModified: now,
       changeFrequency: "weekly",

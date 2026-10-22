@@ -34,7 +34,14 @@ export default function AdmissionSuccessModal({ data, onClose }) {
       setDownloading(true);
       const receipt = await generateReceiptPdf(data);
       receipt.download();
-      toast.success("Official Admission Receipt PDF downloaded!");
+      const isMobile =
+        typeof navigator !== "undefined" &&
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        toast.success("Downloading official admission slip to your phone...");
+      } else {
+        toast.success("Official Admission Receipt PDF downloaded!");
+      }
     } catch (err) {
       console.error("Download PDF error:", err);
       toast.error("Could not generate PDF download. Please try again.");

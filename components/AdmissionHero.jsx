@@ -93,13 +93,13 @@ export default function AdmissionHero({ onScrollToForm }) {
 
 
         {/* Clean, Prestigious Heading */}
-        <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight sm:leading-snug max-w-2xl mx-auto">
-          Online Student Admission Registration
+        <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight sm:leading-snug max-w-3xl mx-auto">
+          Online Student Admission Registration 2027–2028
         </h1>
 
         {/* Subtitle */}
         <p className="text-xs sm:text-sm md:text-[15px] text-slate-600 max-w-xl mx-auto mt-2 sm:mt-2.5 leading-relaxed font-normal">
-          Mahmud International School • Nursery to Class XII • Rupahi, Nagaon, Assam
+          Mahmud International School • English Medium • Nursery to Class XII • Rupahi, Nagaon (Assam)
         </p>
 
         {/* Key Highlights Micro-Badges */}

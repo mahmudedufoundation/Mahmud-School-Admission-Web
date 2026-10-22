@@ -11,32 +11,37 @@ import {
   ShieldCheck,
   GraduationCap,
   ArrowRight,
+  MapPin,
 } from "lucide-react";
 
 const FAQ_ITEMS = [
+  {
+    q: "Why is Mahmud International School considered the best English medium school in Rupahi, Nagaon?",
+    a: "Mahmud International School (MIS Rupahi) leads education in the region by combining CBSE-aligned English medium academics, state-of-the-art smart digital classrooms, high faculty-student ratios, comprehensive STEM and computer labs, safe GPS bus transport covering Rupahi and surrounding areas, and disciplined on-campus boarding facilities.",
+  },
   {
     q: "What is the online admission procedure for Session 2027-2028?",
     a: "Applying takes only 3 minutes: (1) Select the target class and fill student details, (2) Provide father and mother contact information, (3) Enter your residential address, (4) Choose facility options like school bus transport and hostel boarding, and (5) Submit to receive an instant digital receipt slip with an application reference number (MIS-ADM-2027-XXXX).",
   },
   {
-    q: "What is the minimum age criterion for Nursery and Class 1?",
+    q: "What is the minimum age criterion for Nursery and Class 1 in Rupahi?",
     a: "As per National Education Policy (NEP) and standard schooling norms, as of March 31, 2027: Nursery requires minimum 3+ years, LKG 4+ years, UKG 5+ years, and Class 1 requires minimum 6 years of age.",
+  },
+  {
+    q: "Which areas in Rupahi, Juria, Batadrava, and Nagaon are covered by school buses?",
+    a: "Our GPS-tracked bus fleet covers extensive daily pickup routes across Rupahi town, Rupahihat, Juria, Batadrava, Dhing gate, Alitangani, Samaguri, Nagaon town, and surrounding rural neighborhoods with vetted drivers and attendants.",
+  },
+  {
+    q: "Is residential hostel accommodation available for outstation students in Rupahi?",
+    a: "Yes, Mahmud International School provides clean, safe, and air-conditioned residential boarding facilities with nutritious meal dining, 24/7 CCTV security, dedicated resident wardens, and supervised evening study hours for boys and girls.",
   },
   {
     q: "What documents will be requested during the offline document verification?",
     a: "After online submission, our admission desk will schedule a quick document verification. Please keep ready: (1) Student Birth Certificate (Municipal/Panchayat), (2) Recent passport size photographs, (3) Parent/Guardian ID card, (4) Previous school Report Card & Transfer Certificate (for Class 2 and above).",
   },
   {
-    q: "Which routes are covered by the Mahmud International School bus transport?",
-    a: "Our modern GPS-tracked school fleet covers extensive routes across Rupahi town, Juria, Batadrava, Dhing gate, Alitangani, Samaguri, Nagaon town, and surrounding rural neighborhoods with vetted drivers and attendants.",
-  },
-  {
-    q: "Is residential hostel accommodation available for outstation students?",
-    a: "Yes, Mahmud International School provides clean, safe, and air-conditioned residential boarding facilities with nutritious meal dining, 24/7 CCTV security, dedicated resident wardens, and supervised evening study hours.",
-  },
-  {
     q: "How can I check the live status of my application after submission?",
-    a: "You can track your application anytime 24/7 by clicking the 'Track Application' button in the top navigation bar. Enter either your 16-character Application Number or the registered parent phone number.",
+    a: "You can track your application anytime 24/7 by clicking the 'Track Status' button in the top navigation bar. Enter either your 16-character Application Number or the registered parent phone number.",
   },
 ];
 
@@ -165,8 +170,52 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
           })}
         </div>
 
+        {/* Local Feeder Towns & Bus Transport Coverage (Hyper-Local SEO & Parent Trust) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+                <MapPin size={15} />
+              </div>
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                  Local Communities & Bus Transport Coverage
+                </h4>
+                <p className="text-[11px] text-slate-500">
+                  Daily GPS bus service & admissions open for students across Rupahi and Nagaon district
+                </p>
+              </div>
+            </div>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700 shrink-0 self-start sm:self-auto">
+              <Bus size={12} className="text-amber-600" />
+              <span>Door-to-Door Pickups</span>
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {[
+              "Rupahi Town",
+              "Rupahihat BDO Road",
+              "Juria Bazar",
+              "Batadrava",
+              "Dhing Gate",
+              "Alitangani",
+              "Samaguri",
+              "Khatowal",
+              "Nagaon Sadar",
+            ].map((town) => (
+              <span
+                key={town}
+                className="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
+              >
+                📍 {town}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Trust & Amenities Badges */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-1">
           <div className="p-3.5 sm:p-4 bg-white rounded-2xl border border-slate-200 text-center space-y-1.5 shadow-2xs hover:shadow-xs transition-shadow">
             <div className="w-9 h-9 mx-auto rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center">
               <BookOpen size={17} />

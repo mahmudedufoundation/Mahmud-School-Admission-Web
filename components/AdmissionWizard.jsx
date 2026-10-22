@@ -330,18 +330,23 @@ export default function AdmissionWizard({ onSuccess }) {
         <div className="bg-gradient-to-r from-slate-50/90 via-slate-50 to-slate-100/70 border-b border-slate-200/80 p-3.5 sm:p-5">
           {/* Mobile Step Header */}
           <div className="sm:hidden space-y-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold shadow-2xs shrink-0">
                   {currentStep}
                 </span>
-                <span className="text-xs font-bold text-slate-900 tracking-tight">
+                <span className="text-xs font-bold text-slate-900 tracking-tight truncate">
                   {ADMISSION_STEPS[currentStep - 1].title}
                 </span>
               </div>
-              <span className="text-[11px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">
-                Step {currentStep} of 5
-              </span>
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2 py-0.5 rounded-full">
+                  {selectedClassName}
+                </span>
+                <span className="text-[10px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">
+                  {currentStep}/5
+                </span>
+              </div>
             </div>
 
             {/* Mobile Progress Bar */}
@@ -413,8 +418,8 @@ export default function AdmissionWizard({ onSuccess }) {
 
         {/* Form Body Container */}
         <div className="p-4 sm:p-7 md:p-8 relative">
-          {/* Top Step Header */}
-          <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+          {/* Top Step Header (Desktop & Tablet only - mobile has the unified stepper bar above) */}
+          <div className="hidden sm:flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
 
           <div>
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">

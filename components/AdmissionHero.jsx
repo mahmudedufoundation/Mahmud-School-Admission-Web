@@ -58,20 +58,20 @@ function AcademicCrestIcon({ className = "w-4 h-4" }) {
 
 export default function AdmissionHero({ onScrollToForm }) {
   return (
-    <section className="relative w-full pt-6 pb-6 sm:pt-10 sm:pb-10 bg-gradient-to-b from-white via-slate-50/70 to-[#f8fafc] border-b border-slate-200/60 overflow-hidden text-center">
+    <section className="relative w-full pt-4 pb-4 sm:pt-10 sm:pb-10 bg-gradient-to-b from-white via-slate-50/70 to-[#f8fafc] border-b border-slate-200/60 overflow-hidden text-center">
       {/* Subtle Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-44 bg-gradient-to-b from-amber-100/25 via-indigo-50/15 to-transparent blur-2xl pointer-events-none -z-0" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         {/* Ultra-Premium Session Badge with Custom Crest Icon */}
-        <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-amber-50/95 via-white to-emerald-50/95 border border-amber-300/80 shadow-[0_2px_14px_-3px_rgba(245,158,11,0.22)] backdrop-blur-md mb-3 sm:mb-4 transition-all duration-300 hover:border-amber-400 hover:shadow-[0_4px_18px_-2px_rgba(245,158,11,0.32)] hover:scale-[1.01]">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-amber-50/95 via-white to-emerald-50/95 border border-amber-300/80 shadow-[0_2px_14px_-3px_rgba(245,158,11,0.22)] backdrop-blur-md mb-2 sm:mb-4 transition-all duration-300 hover:border-amber-400 hover:shadow-[0_4px_18px_-2px_rgba(245,158,11,0.32)] hover:scale-[1.01]">
           {/* Custom Crest Emblem */}
-          <div className="w-5 h-5 rounded-full bg-amber-100/80 border border-amber-300/60 flex items-center justify-center shrink-0 shadow-2xs">
-            <AcademicCrestIcon className="w-3.5 h-3.5" />
+          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-amber-100/80 border border-amber-300/60 flex items-center justify-center shrink-0 shadow-2xs">
+            <AcademicCrestIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </div>
 
           {/* Session Title */}
-          <span className="text-xs sm:text-[13px] font-black text-amber-950 tracking-tight whitespace-nowrap">
+          <span className="text-[11px] sm:text-[13px] font-black text-amber-950 tracking-tight whitespace-nowrap">
             Academic Session 2027–2028
           </span>
 
@@ -82,7 +82,7 @@ export default function AdmissionHero({ onScrollToForm }) {
           </span>
 
           {/* Live Pulsing Status Pill */}
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs ml-0.5 whitespace-nowrap shrink-0">
+          <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs ml-0.5 whitespace-nowrap shrink-0">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
@@ -91,33 +91,32 @@ export default function AdmissionHero({ onScrollToForm }) {
           </span>
         </div>
 
-
         {/* Clean, Prestigious Heading */}
-        <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight sm:leading-snug max-w-3xl mx-auto">
+        <h1 className="text-lg sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-snug max-w-3xl mx-auto">
           Online Student Admission Registration 2027–2028
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xs sm:text-sm md:text-[15px] text-slate-600 max-w-xl mx-auto mt-2 sm:mt-2.5 leading-relaxed font-normal">
+        <p className="text-[11px] sm:text-sm md:text-[15px] text-slate-600 max-w-xl mx-auto mt-1.5 sm:mt-2.5 leading-relaxed font-normal">
           Mahmud International School • English Medium • Nursery to Class XII • Rupahi, Nagaon (Assam)
         </p>
 
         {/* Key Highlights Micro-Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mt-3.5 sm:mt-4">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[11px] sm:text-xs font-semibold text-slate-700">
-            <GraduationCap size={13} className="text-indigo-600 shrink-0" />
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 mt-2.5 sm:mt-4">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[10px] sm:text-xs font-semibold text-slate-700">
+            <GraduationCap size={12} className="text-indigo-600 shrink-0" />
             <span>Nursery to Class 12</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[11px] sm:text-xs font-semibold text-slate-700">
-            <Bus size={13} className="text-amber-600 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[10px] sm:text-xs font-semibold text-slate-700">
+            <Bus size={12} className="text-amber-600 shrink-0" />
             <span>GPS Bus Transport</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[11px] sm:text-xs font-semibold text-slate-700">
-            <Home size={13} className="text-blue-600 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[10px] sm:text-xs font-semibold text-slate-700">
+            <Home size={12} className="text-blue-600 shrink-0" />
             <span>Boarding Hostel</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[11px] sm:text-xs font-semibold text-slate-700">
-            <CheckCircle size={13} className="text-emerald-600 shrink-0" />
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs text-[10px] sm:text-xs font-semibold text-slate-700">
+            <CheckCircle size={12} className="text-emerald-600 shrink-0" />
             <span>Instant Digital Slip</span>
           </div>
         </div>

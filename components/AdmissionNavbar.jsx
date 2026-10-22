@@ -41,9 +41,9 @@ export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 sm:h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
         {/* School Logo & Title */}
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group cursor-pointer">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group cursor-pointer">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-50 border border-slate-200 p-0.5 flex items-center justify-center shrink-0 group-hover:border-slate-300 transition-colors">
             <img
               src="/images/logo.png"
@@ -101,7 +101,7 @@ export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
             <button
               type="button"
               onClick={onOpenTracker}
-              className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer whitespace-nowrap shrink-0"
             >
               <Search size={13} className="text-slate-500" />
               <span className="hidden sm:inline text-xs font-semibold">Track Status</span>
@@ -109,10 +109,11 @@ export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
             </button>
           )}
 
+          {/* Apply Now button: Visible on tablet/desktop, hidden on mobile since user is already on admission form */}
           <button
             type="button"
             onClick={handleApplyClick}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors cursor-pointer shadow-2xs whitespace-nowrap shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors cursor-pointer shadow-2xs whitespace-nowrap shrink-0"
           >
             <span>Apply Now</span>
             <ArrowRight size={13} />

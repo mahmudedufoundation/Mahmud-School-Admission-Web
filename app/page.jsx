@@ -31,8 +31,8 @@ export default function AdmissionHomePage() {
       {/* Hero Section */}
       <AdmissionHero onScrollToForm={handleScrollToForm} />
 
-      {/* Main Form Section - Tight Mobile & Desktop Spacing */}
-      <section className="py-4 sm:py-6 flex-1">
+      {/* Main Form Section - Balanced Desktop & Mobile Spacing */}
+      <section className="py-6 sm:py-10 md:py-12 flex-1">
         <AdmissionWizard onSuccess={(data) => setSuccessData(data)} />
       </section>
 

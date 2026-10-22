@@ -323,92 +323,99 @@ export default function AdmissionWizard({ onSuccess }) {
     "Not Selected";
 
   return (
-    <div id="admission-wizard-card" className="w-full max-w-3xl mx-auto px-3 sm:px-6">
-      {/* Step Navigation Card */}
-      <div className="bg-white p-3.5 sm:p-5 rounded-2xl border border-slate-200/90 shadow-2xs mb-4">
-        {/* Mobile Step Header */}
-        <div className="flex items-center justify-between mb-2 sm:hidden">
-          <div className="flex items-center gap-2">
-            <span className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">
-              {currentStep}
-            </span>
-            <span className="text-xs font-bold text-slate-900">
-              {ADMISSION_STEPS[currentStep - 1].title}
-            </span>
+    <div id="admission-wizard-card" className="w-full max-w-4xl mx-auto px-3 sm:px-6">
+      {/* Unified Master Card with Stepper & Form */}
+      <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
+        {/* Stepper Navigation Header */}
+        <div className="bg-gradient-to-r from-slate-50/90 via-slate-50 to-slate-100/70 border-b border-slate-200/80 p-3.5 sm:p-5">
+          {/* Mobile Step Header */}
+          <div className="sm:hidden space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold shadow-2xs">
+                  {currentStep}
+                </span>
+                <span className="text-xs font-bold text-slate-900 tracking-tight">
+                  {ADMISSION_STEPS[currentStep - 1].title}
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">
+                Step {currentStep} of 5
+              </span>
+            </div>
+
+            {/* Mobile Progress Bar */}
+            <div className="w-full h-1.5 bg-slate-200/80 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-slate-900 rounded-full"
+                initial={{ width: "20%" }}
+                animate={{ width: `${(currentStep / 5) * 100}%` }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              />
+            </div>
           </div>
-          <span className="text-[11px] font-semibold text-slate-500">Step {currentStep} of 5</span>
-        </div>
 
-        {/* Animated Progress Bar */}
-        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden sm:hidden">
-          <motion.div
-            className="h-full bg-slate-900 rounded-full"
-            initial={{ width: "20%" }}
-            animate={{ width: `${(currentStep / 5) * 100}%` }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          />
-        </div>
+          {/* Desktop Stepper */}
+          <div className="hidden sm:grid grid-cols-5 gap-2 lg:gap-2.5">
+            {ADMISSION_STEPS.map((step) => {
+              const isCompleted = step.id < currentStep;
+              const isCurrent = step.id === currentStep;
 
-        {/* Desktop Stepper */}
-        <div className="hidden sm:grid grid-cols-5 gap-2">
-          {ADMISSION_STEPS.map((step) => {
-            const isCompleted = step.id < currentStep;
-            const isCurrent = step.id === currentStep;
-
-            return (
-              <button
-                key={step.id}
-                type="button"
-                onClick={() => {
-                  if (step.id < currentStep) {
-                    setDirection(-1);
-                    setCurrentStep(step.id);
-                  }
-                }}
-                disabled={step.id > currentStep}
-                className={`text-left p-2.5 rounded-xl border transition-all ${
-                  isCurrent
-                    ? "bg-slate-900 text-white border-slate-900 shadow-2xs"
-                    : isCompleted
-                    ? "bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100 cursor-pointer"
-                    : "bg-white text-slate-400 border-slate-100 opacity-60 cursor-not-allowed"
-                }`}
-              >
-                <div className="flex items-center gap-1.5 mb-1">
-                  {isCompleted ? (
-                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                      <Check size={12} strokeWidth={2.5} />
-                    </span>
-                  ) : (
-                    <span
-                      className={`w-5 h-5 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0 ${
-                        isCurrent
-                          ? "bg-white text-slate-900"
-                          : "bg-slate-100 text-slate-600"
-                      }`}
-                    >
-                      {step.id}
-                    </span>
-                  )}
-                  <span className="text-xs font-bold truncate">{step.title}</span>
-                </div>
-                <p
-                  className={`text-[10px] truncate ${
-                    isCurrent ? "text-slate-300" : "text-slate-500"
+              return (
+                <button
+                  key={step.id}
+                  type="button"
+                  onClick={() => {
+                    if (step.id < currentStep) {
+                      setDirection(-1);
+                      setCurrentStep(step.id);
+                    }
+                  }}
+                  disabled={step.id > currentStep}
+                  className={`text-left p-3 rounded-xl border transition-all duration-200 ${
+                    isCurrent
+                      ? "bg-slate-900 text-white border-slate-900 shadow-xs ring-2 ring-slate-900/10"
+                      : isCompleted
+                      ? "bg-white text-slate-800 border-slate-200 hover:border-slate-300 hover:bg-slate-50 cursor-pointer shadow-2xs"
+                      : "bg-white/60 text-slate-400 border-slate-200/60 opacity-60 cursor-not-allowed"
                   }`}
                 >
-                  {step.subtitle}
-                </p>
-              </button>
-            );
-          })}
+                  <div className="flex items-center gap-2 mb-1">
+                    {isCompleted ? (
+                      <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <Check size={12} strokeWidth={2.5} />
+                      </span>
+                    ) : (
+                      <span
+                        className={`w-5 h-5 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0 ${
+                          isCurrent
+                            ? "bg-white text-slate-900"
+                            : "bg-slate-100 text-slate-600"
+                        }`}
+                      >
+                        {step.id}
+                      </span>
+                    )}
+                    <span className="text-xs font-bold truncate tracking-tight">{step.title}</span>
+                  </div>
+                  <p
+                    className={`text-[10px] truncate ${
+                      isCurrent ? "text-slate-300" : "text-slate-500"
+                    }`}
+                  >
+                    {step.subtitle}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* Main Wizard Form Card */}
-      <div className="bg-white p-4 sm:p-7 rounded-2xl border border-slate-200/90 shadow-2xs relative">
-        {/* Top Step Header */}
-        <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+        {/* Form Body Container */}
+        <div className="p-4 sm:p-7 md:p-8 relative">
+          {/* Top Step Header */}
+          <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+
           <div>
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
               Step {currentStep} of 5
@@ -1093,5 +1100,6 @@ export default function AdmissionWizard({ onSuccess }) {
         </div>
       </div>
     </div>
+  </div>
   );
 }

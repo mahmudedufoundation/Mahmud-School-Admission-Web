@@ -24,7 +24,7 @@ export default function AdmissionFooter() {
 
   return (
     <footer className="w-full mt-10 sm:mt-16 border-t border-slate-200 bg-white pt-10 sm:pt-14 pb-8 text-slate-600">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-slate-100">
           {/* Col 1: School Identity */}

@@ -11,8 +11,10 @@ import {
   ShieldCheck,
   GraduationCap,
   ArrowRight,
+  ArrowUpRight,
   MapPin,
 } from "lucide-react";
+import { IS_ADMISSION_FORM_OPEN, SCAT_REGISTRATION_URL } from "@/lib/constants";
 
 const FAQ_ITEMS = [
   {
@@ -89,14 +91,26 @@ export default function AdmissionFaqSection({ onScrollToForm }) {
               <span className="text-[10px] text-slate-400 font-medium sm:hidden">
                 Swipe horizontally →
               </span>
-              <button
-                type="button"
-                onClick={onScrollToForm}
-                className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
-              >
-                <span>Apply Now</span>
-                <ArrowRight size={13} />
-              </button>
+              {IS_ADMISSION_FORM_OPEN ? (
+                <button
+                  type="button"
+                  onClick={onScrollToForm}
+                  className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
+                >
+                  <span>Apply Now</span>
+                  <ArrowRight size={13} />
+                </button>
+              ) : (
+                <a
+                  href={SCAT_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-2xs transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
+                >
+                  <span>Register for SCAT</span>
+                  <ArrowUpRight size={13} />
+                </a>
+              )}
             </div>
           </div>
 

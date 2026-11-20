@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Search,
   ArrowRight,
+  ArrowUpRight,
   ExternalLink,
   Menu,
   X,
@@ -14,6 +15,7 @@ import {
   FileText,
   Shield,
 } from "lucide-react";
+import { IS_ADMISSION_FORM_OPEN, SCAT_REGISTRATION_URL } from "@/lib/constants";
 
 export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -109,15 +111,27 @@ export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
             </button>
           )}
 
-          {/* Apply Now button: Visible on tablet/desktop, hidden on mobile since user is already on admission form */}
-          <button
-            type="button"
-            onClick={handleApplyClick}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors cursor-pointer shadow-2xs whitespace-nowrap shrink-0"
-          >
-            <span>Apply Now</span>
-            <ArrowRight size={13} />
-          </button>
+          {/* Primary CTA button: Apply Now when form is open, Register for SCAT when paused */}
+          {IS_ADMISSION_FORM_OPEN ? (
+            <button
+              type="button"
+              onClick={handleApplyClick}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors cursor-pointer shadow-2xs whitespace-nowrap shrink-0"
+            >
+              <span>Apply Now</span>
+              <ArrowRight size={13} />
+            </button>
+          ) : (
+            <a
+              href={SCAT_REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors cursor-pointer shadow-2xs whitespace-nowrap shrink-0"
+            >
+              <span>Register for SCAT</span>
+              <ArrowUpRight size={13} />
+            </a>
+          )}
 
           {/* Mobile Menu Hamburger Toggle */}
           <button
@@ -194,13 +208,26 @@ export default function AdmissionNavbar({ onOpenTracker, onScrollToForm }) {
               <span>Helpline: +91 98540 12345</span>
             </a>
 
-            <button
-              type="button"
-              onClick={handleApplyClick}
-              className="px-3.5 py-1.5 bg-slate-900 text-white rounded-lg font-semibold shadow-2xs hover:bg-slate-800 transition-colors"
-            >
-              Start Form
-            </button>
+            {IS_ADMISSION_FORM_OPEN ? (
+              <button
+                type="button"
+                onClick={handleApplyClick}
+                className="px-3.5 py-1.5 bg-slate-900 text-white rounded-lg font-semibold shadow-2xs hover:bg-slate-800 transition-colors"
+              >
+                Start Form
+              </button>
+            ) : (
+              <a
+                href={SCAT_REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center gap-1 px-3.5 py-1.5 bg-slate-900 text-white rounded-lg font-semibold shadow-2xs hover:bg-slate-800 transition-colors"
+              >
+                <span>Register for SCAT</span>
+                <ArrowUpRight size={12} />
+              </a>
+            )}
           </div>
         </div>
       )}

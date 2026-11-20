@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CheckCircle, Bus, Home, GraduationCap } from "lucide-react";
+import { IS_ADMISSION_FORM_OPEN } from "@/lib/constants";
 
 // Custom Handcrafted Academic Crest Emblem Icon (Replaces standard 3-star icon)
 function AcademicCrestIcon({ className = "w-4 h-4" }) {
@@ -78,7 +79,7 @@ export default function AdmissionHero({ onScrollToForm }) {
           <span className="text-amber-300 font-bold hidden sm:inline select-none">•</span>
 
           <span className="text-xs sm:text-[13px] text-slate-800 font-bold hidden sm:inline whitespace-nowrap">
-            Admissions Open
+            {IS_ADMISSION_FORM_OPEN ? "Admissions Open" : "SCAT 2026 Exam"}
           </span>
 
           {/* Live Pulsing Status Pill */}
@@ -87,7 +88,7 @@ export default function AdmissionHero({ onScrollToForm }) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
             </span>
-            <span>Live</span>
+            <span>{IS_ADMISSION_FORM_OPEN ? "Live" : "SCAT Live"}</span>
           </span>
         </div>
 

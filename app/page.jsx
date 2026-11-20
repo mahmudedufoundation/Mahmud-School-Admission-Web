@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import AdmissionNavbar from "@/components/AdmissionNavbar";
 import AdmissionHero from "@/components/AdmissionHero";
 import AdmissionWizard from "@/components/AdmissionWizard";
+import ScatRedirectCard from "@/components/ScatRedirectCard";
 import AdmissionFaqSection from "@/components/AdmissionFaqSection";
 import AdmissionSuccessModal from "@/components/AdmissionSuccessModal";
 import ApplicationTrackerModal from "@/components/ApplicationTrackerModal";
 import AdmissionFooter from "@/components/AdmissionFooter";
+import { IS_ADMISSION_FORM_OPEN } from "@/lib/constants";
 
 export default function AdmissionHomePage() {
   const [successData, setSuccessData] = useState(null);
@@ -33,7 +35,11 @@ export default function AdmissionHomePage() {
 
       {/* Main Form Section - Balanced Spacing with Safe Area Bottom Padding for In-App Mobile Browsers */}
       <section className="pt-3 pb-24 sm:py-10 md:py-12 flex-1">
-        <AdmissionWizard onSuccess={(data) => setSuccessData(data)} />
+        {IS_ADMISSION_FORM_OPEN ? (
+          <AdmissionWizard onSuccess={(data) => setSuccessData(data)} />
+        ) : (
+          <ScatRedirectCard />
+        )}
       </section>
 
       {/* SEO-Rich Admission FAQ & Eligibility Matrix */}

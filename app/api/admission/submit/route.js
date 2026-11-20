@@ -1,9 +1,19 @@
 import { NextResponse } from "next/server";
 import { getAdminSupabase } from "@/lib/supabase";
-import { DEFAULT_SCHOOL_ID } from "@/lib/constants";
+import { DEFAULT_SCHOOL_ID, IS_ADMISSION_FORM_OPEN } from "@/lib/constants";
 
 export async function POST(request) {
   try {
+    if (!IS_ADMISSION_FORM_OPEN) {
+      return NextResponse.json(
+        {
+          error:
+            "Regular online admissions for Session 2027–2028 are currently paused. Please register for SCAT 2026 at https://www.misrupahi.com/scat.",
+        },
+        { status: 403 }
+      );
+    }
+
     const body = await request.json();
     const supabase = getAdminSupabase();
 

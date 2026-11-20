@@ -14,6 +14,7 @@ import {
   Home,
   CheckCircle2,
 } from "lucide-react";
+import { IS_ADMISSION_FORM_OPEN, SCAT_REGISTRATION_URL } from "@/lib/constants";
 
 export default function AdmissionFooter() {
   const scrollToTop = () => {
@@ -142,13 +143,25 @@ export default function AdmissionFooter() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  type="button"
-                  onClick={scrollToTop}
-                  className="text-slate-600 hover:text-slate-900 transition-colors cursor-pointer text-left"
-                >
-                  Apply Online (Step 1-5)
-                </button>
+                {IS_ADMISSION_FORM_OPEN ? (
+                  <button
+                    type="button"
+                    onClick={scrollToTop}
+                    className="text-slate-600 hover:text-slate-900 transition-colors cursor-pointer text-left"
+                  >
+                    Apply Online (Step 1-5)
+                  </button>
+                ) : (
+                  <a
+                    href={SCAT_REGISTRATION_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-600 hover:text-slate-900 transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>SCAT 2026 Exam Registration</span>
+                    <ExternalLink size={10} className="text-slate-400" />
+                  </a>
+                )}
               </li>
               <li>
                 <button
